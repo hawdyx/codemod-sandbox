@@ -1,4 +1,5 @@
 import { styleText } from "node:util";
+import chalk from "chalk";
 import { UserService } from "./services/user-service";
 import { TaskManager } from "./services/task-manager";
 import { Validator } from "./validators/validator";
@@ -6,6 +7,7 @@ import { printBanner, formatSuccess, formatError } from "./utils/formatter";
 import { printConfig } from "./config/config";
 
 console.log(styleText("blue", "Starting application..."));
+console.log(chalk.cyan("Initializing with chalk..."));
 printBanner("Task Management System");
 printConfig();
 
@@ -15,6 +17,7 @@ const validator = new Validator();
 
 // User operations
 console.log(styleText("green", "\n--- User Management ---"));
+console.log(chalk.bold.magenta("Managing users with chalk"));
 const user1 = userService.createUser("John Doe", "john@example.com");
 const user2 = userService.createUser("Jane Smith", "jane@example.com");
 userService.listUsers();
