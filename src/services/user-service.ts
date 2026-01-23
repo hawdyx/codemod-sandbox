@@ -46,7 +46,10 @@ export class UserService {
   listUsers(): void {
     console.log(styleText("blue", `Total users: ${this.users.size}`));
     this.users.forEach((user) => {
-      const statusColor = user.status === "active" ? (text) => styleText("green", text) : (text) => styleText("red", text);
+      const statusColor =
+        user.status === "active"
+          ? (text) => styleText("green", text)
+          : (text) => styleText("red", text);
       console.log(statusColor(`- ${user.name} (${user.email})`));
     });
   }

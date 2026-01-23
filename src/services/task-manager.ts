@@ -39,15 +39,15 @@ export class TaskManager {
       return;
     }
 
-    task.status = status;
-    const statusColors: Record<TaskStatus, any> = {
-      pending: chalk.yellow,
-      "in-progress": chalk.blue,
-      completed: chalk.green,
-      failed: chalk.red,
-    };
-
-    console.log(statusColors[status](`Task ${id} status: ${status}`));
+    // task.status = status;
+    // const statusColors: Record<TaskStatus, any> = {
+    //   pending: styleText.yellow,
+    //   "in-progress": chalk.blue,
+    //   completed: chalk.green,
+    //   failed: chalk.red,
+    // };
+    //
+    // console.log(statusColors[status](`Task ${id} status: ${status}`));
   }
 
   printSummary(): void {
@@ -61,7 +61,9 @@ export class TaskManager {
     );
 
     console.log(styleText("yellow", `Pending: ${summary.pending || 0}`));
-    console.log(styleText("blue", `In Progress: ${summary["in-progress"] || 0}`));
+    console.log(
+      styleText("blue", `In Progress: ${summary["in-progress"] || 0}`),
+    );
     console.log(styleText("green", `Completed: ${summary.completed || 0}`));
     console.log(styleText("red", `Failed: ${summary.failed || 0}`));
   }
