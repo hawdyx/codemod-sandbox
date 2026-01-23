@@ -1,4 +1,5 @@
 import { styleText } from "node:util";
+import chalk from "chalk";
 
 export class Logger {
   private prefix: string;
@@ -9,6 +10,7 @@ export class Logger {
 
   error(msg: string): void {
     console.log(styleText("red", `[${this.prefix}] ERROR: ${msg}`));
+    console.log(chalk.red.bold(`[CHALK] ${msg}`));
   }
 
   success(msg: string): void {
