@@ -1,4 +1,4 @@
-import chalk from "chalk";
+import { styleText } from "node:util";
 
 export const CONFIG = {
   appName: "TaskApp",
@@ -7,8 +7,8 @@ export const CONFIG = {
 };
 
 export function printConfig(): void {
-  console.log(chalk.blue("Application Configuration:"));
-  console.log(chalk.green(`Name: ${CONFIG.appName}`));
-  console.log(chalk.green(`Version: ${CONFIG.version}`));
-  console.log(chalk.green(`Max Users: ${CONFIG.maxUsers}`));
+  console.log(styleText("blue", "Application Configuration:"));
+  console.log(styleText("green", `Name: ${CONFIG.appName}`));
+  console.log(styleText("green", `Version: ${CONFIG.version}`));
+  console.log(styleText("green", `Max Users: ${CONFIG.maxUsers}`));
 }

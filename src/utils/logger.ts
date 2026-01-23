@@ -1,4 +1,4 @@
-import chalk from "chalk";
+import { styleText } from "node:util";
 
 export class Logger {
   private prefix: string;
@@ -8,18 +8,18 @@ export class Logger {
   }
 
   error(msg: string): void {
-    console.log(chalk.red(`[${this.prefix}] ERROR: ${msg}`));
+    console.log(styleText("red", `[${this.prefix}] ERROR: ${msg}`));
   }
 
   success(msg: string): void {
-    console.log(chalk.green(`[${this.prefix}] SUCCESS: ${msg}`));
+    console.log(styleText("green", `[${this.prefix}] SUCCESS: ${msg}`));
   }
 
   info(msg: string): void {
-    console.log(chalk.blue(`[${this.prefix}] INFO: ${msg}`));
+    console.log(styleText("blue", `[${this.prefix}] INFO: ${msg}`));
   }
 
   warn(msg: string): void {
-    console.log(chalk.yellow(`[${this.prefix}] WARN: ${msg}`));
+    console.log(styleText("yellow", `[${this.prefix}] WARN: ${msg}`));
   }
 }

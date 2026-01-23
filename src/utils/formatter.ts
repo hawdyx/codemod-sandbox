@@ -1,19 +1,19 @@
-import chalk from "chalk";
+import { styleText } from "node:util";
 
 export function formatError(error: Error): string {
-  return chalk.red(`Error: ${error.message}`);
+  return styleText("red", `Error: ${error.message}`);
 }
 
 export function formatSuccess(message: string): string {
-  return chalk.green(`✓ ${message}`);
+  return styleText("green", `✓ ${message}`);
 }
 
 export function formatInfo(message: string): string {
-  return chalk.blue(`ℹ ${message}`);
+  return styleText("blue", `ℹ ${message}`);
 }
 
 export function printBanner(text: string): void {
-  console.log(chalk.blue("=".repeat(50)));
-  console.log(chalk.green(text));
-  console.log(chalk.blue("=".repeat(50)));
+  console.log(styleText("blue", "=".repeat(50)));
+  console.log(styleText("green", text));
+  console.log(styleText("blue", "=".repeat(50)));
 }

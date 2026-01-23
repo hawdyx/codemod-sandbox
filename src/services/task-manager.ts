@@ -1,4 +1,4 @@
-import chalk from "chalk";
+import { styleText } from "node:util";
 import { Logger } from "../utils/logger";
 
 export type TaskStatus = "pending" | "in-progress" | "completed" | "failed";
@@ -28,14 +28,14 @@ export class TaskManager {
     };
 
     this.tasks.push(task);
-    console.log(chalk.green(`Task added: ${title}`));
+    console.log(styleText("green", `Task added: ${title}`));
     return task;
   }
 
   updateStatus(id: string, status: TaskStatus): void {
     const task = this.tasks.find((t) => t.id === id);
     if (!task) {
-      console.log(chalk.red(`Task not found: ${id}`));
+      console.log(styleText("red", `Task not found: ${id}`));
       return;
     }
 
@@ -51,7 +51,7 @@ export class TaskManager {
   }
 
   printSummary(): void {
-    console.log(chalk.blue("=== Task Summary ==="));
+    console.log(styleText("blue", "=== Task Summary ==="));
     const summary = this.tasks.reduce(
       (acc, task) => {
         acc[task.status] = (acc[task.status] || 0) + 1;
@@ -60,9 +60,9 @@ export class TaskManager {
       {} as Record<TaskStatus, number>,
     );
 
-    console.log(chalk.yellow(`Pending: ${summary.pending || 0}`));
-    console.log(chalk.blue(`In Progress: ${summary["in-progress"] || 0}`));
-    console.log(chalk.green(`Completed: ${summary.completed || 0}`));
-    console.log(chalk.red(`Failed: ${summary.failed || 0}`));
+    console.log(styleText("yellow", `Pending: ${summary.pending || 0}`));
+    console.log(styleText("blue", `In Progress: ${summary["in-progress"] || 0}`));
+    console.log(styleText("green", `Completed: ${summary.completed || 0}`));
+    console.log(styleText("red", `Failed: ${summary.failed || 0}`));
   }
 }

@@ -1,4 +1,4 @@
-import chalk from "chalk";
+import { styleText } from "node:util";
 import { Logger } from "../utils/logger";
 
 export interface User {
@@ -27,7 +27,7 @@ export class UserService {
 
     this.users.set(user.id, user);
     this.logger.success(`User created: ${user.name}`);
-    console.log(chalk.blue(`User ID: ${user.id}`));
+    console.log(styleText("blue", `User ID: ${user.id}`));
 
     return user;
   }
@@ -44,9 +44,9 @@ export class UserService {
   }
 
   listUsers(): void {
-    console.log(chalk.blue(`Total users: ${this.users.size}`));
+    console.log(styleText("blue", `Total users: ${this.users.size}`));
     this.users.forEach((user) => {
-      const statusColor = user.status === "active" ? chalk.green : chalk.red;
+      const statusColor = user.status === "active" ? (text) => styleText("green", text) : (text) => styleText("red", text);
       console.log(statusColor(`- ${user.name} (${user.email})`));
     });
   }
