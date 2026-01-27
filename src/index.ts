@@ -37,6 +37,9 @@ taskManager.updateStatus(task2.id, "in-progress");
 taskManager.updateStatus(task3.id, "pending");
 taskManager.printSummary();
 
+// webhook test #2
+console.log("testing webhook");
+
 // Cleanup
 console.log(styleText("blue", "\n--- Cleanup ---"));
 userService.deleteUser(user1.id);
