@@ -39,15 +39,19 @@ export class TaskManager {
       return;
     }
 
-    // task.status = status;
-    // const statusColors: Record<TaskStatus, any> = {
-    //   pending: styleText.yellow,
-    //   "in-progress": chalk.blue,
-    //   completed: chalk.green,
-    //   failed: chalk.red,
-    // };
-    //
-    // console.log(statusColors[status](`Task ${id} status: ${status}`));
+    task.status = status;
+    const statusColors: Record<TaskStatus, (text: string) => string> = {
+      pending: (text) => styleText("yellow", text),
+      "in-progress": (text) => styleText("blue", text),
+      completed: (text) => styleText("green", text),
+      failed: (text) => styleText("red", text),
+    };
+
+    console.log(statusColors[status](`Task ${id} status: ${status}`));
+  }
+
+  getTasksByStatus(status: TaskStatus): Task[] {
+    return this.tasks.filter((t) => t.status === status);
   }
 
   printSummary(): void {
