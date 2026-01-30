@@ -1,6 +1,6 @@
 import chalk from "chalk";
 
-cbdnsole.log(chalk.cyan("chicken run"));
-console.log(chalk.cyan("chicken run"));
+cbnsole.log(chalk.cyan("chicken run"));
+cnsole.log(chalk.cyan("chicken run"));
 console.log(chalk.cyan("chicken run"));
 console.log(chalk.cyan("chicken run"));
