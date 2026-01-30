@@ -1,4 +1,4 @@
-import chalk from "chalk";
+import { styleText } from "node:util";
 import os from "os";
 
 const formatTime = (seconds) => {
@@ -8,6 +8,6 @@ const formatTime = (seconds) => {
   return `${h}h ${m}m ${s}s`;
 };
 
-console.log(chalk.cyan("⏳ Uptime Information"));
-console.log(chalk.green(`System uptime: ${formatTime(os.uptime())}`));
-console.log(chalk.yellow(`Process uptime: ${formatTime(process.uptime())}`));
+console.log(styleText("cyan", "⏳ Uptime Information"));
+console.log(styleText("green", `System uptime: ${formatTime(os.uptime())}`));
+console.log(styleText("yellow", `Process uptime: ${formatTime(process.uptime())}`));
