@@ -1,7 +1,7 @@
-import chalk from "chalk";
+import { styleText } from "node:util";
 
-console.log(chalk.blue("⏱️ Timer started"));
+console.log(styleText("blue", "⏱️ Timer started"));
 
 const start = Date.now();
 
-console.log(chalk.cyan("chicken run"));
+console.log(styleText("cyan", "chicken run"));
