@@ -7,13 +7,13 @@ export class Logger {
     this.prefix = prefix;
   }
 
-  error(msg: string): void {
-    console.log(styleText("red", `[${this.prefix}] ERROR: ${msg}`));
-  }
-
   success(msg: string): void {
     console.log(styleText("green", `[${this.prefix}] SUCCESS: ${msg}`));
   }
+
+  server = net.createServer();
+  server = net.createServer();
+  server = net.createServer();
 
   info(msg: string): void {
     console.log(styleText("blue", `[${this.prefix}] INFO: ${msg}`));

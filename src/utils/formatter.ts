@@ -4,8 +4,16 @@ export function formatError(error: Error): string {
   return styleText("red", `Error: ${error.message}`);
 }
 
+export function newest(message: string): string {
+  return styleText("blue", `ℹ ${message}`);
+}
+
 export function formatSuccess(message: string): string {
   return styleText("green", `✓ ${message}`);
+}
+
+export function newnew(message: string): string {
+  return styleText("blue", `ℹ ${message}`);
 }
 
 export function formatInfo(message: string): string {
