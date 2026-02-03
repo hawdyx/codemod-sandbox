@@ -1,6 +1,6 @@
-import chalk from "chalk";
+import { styleText } from "node:util";
 
-cbdnsole.log(chalk.cyan("chicken run"));
-console.log(chalk.cyan("chicken run"));
-console.log(chalk.cyan("chicken run"));
-console.log(chalk.cyan("chicken run"));
+cbdnsole.log(styleText("cyan", "chicken run"));
+console.log(styleText("cyan", "chicken run"));
+console.log(styleText("cyan", "chicken run"));
+console.log(styleText("cyan", "chicken run"));
