@@ -1,4 +1,4 @@
-import chalk from "chalk";
+import { styleText } from "node:util";
 import net from "net";
 
 const PORT = 3000;
@@ -6,11 +6,11 @@ const PORT = 3000;
 const server = net.createServer();
 
 server.once("error", () => {
-  console.log(chalk.red(`❌ Port ${PORT} is already in use`));
+  console.log(styleText("red", `❌ Port ${PORT} is already in use`));
 });
 
 server.once("listening", () => {
-  console.log(chalk.green(`✅ Port ${PORT} is available`));
+  console.log(styleText("green", `✅ Port ${PORT} is available`));
   server.close();
 });
 
